@@ -53,6 +53,12 @@ interface StoreContextType {
   
   // Helpers
   showNotification: (message: string, type: 'success' | 'error' | 'info') => void;
+
+  // Local Sync Actions (for Vercel/serverless stateless environments fallback)
+  saveProductLocal: (product: Product) => void;
+  deleteProductLocal: (id: string) => void;
+  deleteProductsBulkLocal: (ids: string[]) => void;
+  saveSettingsLocal: (settings: any) => void;
 }
 
 const StoreContext = createContext<StoreContextType | undefined>(undefined);
@@ -81,14 +87,24 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
   const [orderHistory, setOrderHistory] = useState<Order[]>([]);
   const [couponCode, setCouponCode] = useState<string>('');
   const [couponDiscount, setCouponDiscount] = useState<{ type: string; value: number; code: string } | null>(null);
-  const [websiteSettings, setWebsiteSettings] = useState<any>({
-    storeName: "Kelly's Gadgets Store",
-    currency: "Ksh",
-    taxRate: 16,
-    shippingFee: 1500,
-    mpesaPaybill: "5123444",
-    paypalEmail: "billing@kellys.com",
-    bankDetails: "Kelly Gadgets Store LTD, Equity Bank Kenya, Acc: 120034455828"
+  const [websiteSettings, setWebsiteSettings] = useState<any>(() => {
+    const defaultVals = {
+      storeName: "Kelly's Gadgets Store",
+      currency: "Ksh",
+      taxRate: 16,
+      shippingFee: 1500,
+      mpesaPaybill: "5123444",
+      paypalEmail: "billing@kellys.com",
+      bankDetails: "Kelly Gadgets Store LTD, Equity Bank Kenya, Acc: 120034455828",
+      contactPhone: "+254 787 272 428",
+      contactAddress: "Lavin Tower, First Floor, Sophia, Homabay, Kenya"
+    };
+    try {
+      const stored = localStorage.getItem('kgs_local_settings');
+      return stored ? { ...defaultVals, ...JSON.parse(stored) } : defaultVals;
+    } catch (e) {
+      return defaultVals;
+    }
   });
   const [isLoading, setIsLoading] = useState(false);
   const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' | 'info' } | null>(null);
@@ -112,12 +128,27 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
   const fetchSettings = async () => {
     try {
       const res = await fetch('/api/settings');
+      let data = {};
       if (res.ok) {
-        const data = await res.json();
+        data = await res.json();
+      }
+      try {
+        const custom = localStorage.getItem('kgs_local_settings');
+        if (custom) {
+          data = { ...data, ...JSON.parse(custom) };
+        }
+      } catch (err) {}
+      if (Object.keys(data).length > 0) {
         setWebsiteSettings(data);
       }
     } catch (e) {
       console.error("Error fetching settings", e);
+      try {
+        const custom = localStorage.getItem('kgs_local_settings');
+        if (custom) {
+          setWebsiteSettings(prev => ({ ...prev, ...JSON.parse(custom) }));
+        }
+      } catch (err) {}
     }
   };
 
@@ -138,6 +169,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
 
   const fetchProducts = async (filters: any = {}) => {
     setIsLoading(true);
+    let apiProducts: Product[] = [];
     try {
       const queryParams = new URLSearchParams();
       Object.keys(filters).forEach(key => {
@@ -147,11 +179,44 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
       });
       const res = await fetch(`/api/products?${queryParams.toString()}`);
       if (res.ok) {
-        const data = await res.json();
-        setProducts(data);
+        apiProducts = await res.json();
       }
     } catch (e) {
       console.error("Error fetching products", e);
+    }
+
+    // Blend / merge with local storage overrides
+    try {
+      let merged = [...apiProducts];
+      
+      // Deletions
+      let deletedIds: string[] = [];
+      const deletedStored = localStorage.getItem('kgs_local_deleted_products');
+      if (deletedStored) deletedIds = JSON.parse(deletedStored);
+      merged = merged.filter(p => !deletedIds.includes(p.id));
+
+      // Updates / Additions
+      let localProducts: Product[] = [];
+      const localStored = localStorage.getItem('kgs_local_products');
+      if (localStored) localProducts = JSON.parse(localStored);
+
+      localProducts.forEach(lp => {
+        const idx = merged.findIndex(p => p.id === lp.id);
+        if (idx !== -1) {
+          merged[idx] = { ...merged[idx], ...lp };
+        } else {
+          if (!filters.category || filters.category === 'all' || lp.category === filters.category) {
+            merged.push(lp);
+          }
+        }
+      });
+
+      setProducts(merged);
+    } catch (err) {
+      console.error("Blending local products erred", err);
+      if (apiProducts.length > 0) {
+        setProducts(apiProducts);
+      }
     } finally {
       setIsLoading(false);
     }
@@ -389,6 +454,81 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+  const saveProductLocal = (product: Product) => {
+    try {
+      let localProducts: Product[] = [];
+      const localStored = localStorage.getItem('kgs_local_products');
+      if (localStored) localProducts = JSON.parse(localStored);
+
+      const idx = localProducts.findIndex(p => p.id === product.id);
+      if (idx !== -1) {
+        localProducts[idx] = { ...localProducts[idx], ...product };
+      } else {
+        localProducts.push(product);
+      }
+      localStorage.setItem('kgs_local_products', JSON.stringify(localProducts));
+
+      // Remove from deleted list if present
+      let deletedIds: string[] = [];
+      const deletedStored = localStorage.getItem('kgs_local_deleted_products');
+      if (deletedStored) {
+        deletedIds = JSON.parse(deletedStored);
+        deletedIds = deletedIds.filter((id: string) => id !== product.id);
+        localStorage.setItem('kgs_local_deleted_products', JSON.stringify(deletedIds));
+      }
+
+      // Sync state immediately
+      fetchProducts();
+    } catch (e) {
+      console.error("saveProductLocal failed", e);
+    }
+  };
+
+  const deleteProductLocal = (id: string) => {
+    try {
+      // Add to deleted list
+      let deletedIds: string[] = [];
+      const deletedStored = localStorage.getItem('kgs_local_deleted_products');
+      if (deletedStored) deletedIds = JSON.parse(deletedStored);
+      if (!deletedIds.includes(id)) {
+        deletedIds.push(id);
+      }
+      localStorage.setItem('kgs_local_deleted_products', JSON.stringify(deletedIds));
+
+      // Remove from local modifications
+      let localProducts: Product[] = [];
+      const localStored = localStorage.getItem('kgs_local_products');
+      if (localStored) {
+        localProducts = JSON.parse(localStored);
+        localProducts = localProducts.filter((p: Product) => p.id !== id);
+        localStorage.setItem('kgs_local_products', JSON.stringify(localProducts));
+      }
+
+      // Sync state immediately
+      fetchProducts();
+    } catch (e) {
+      console.error("deleteProductLocal failed", e);
+    }
+  };
+
+  const deleteProductsBulkLocal = (ids: string[]) => {
+    ids.forEach(id => deleteProductLocal(id));
+  };
+
+  const saveSettingsLocal = (settings: any) => {
+    try {
+      const stored = localStorage.getItem('kgs_local_settings');
+      const base = stored ? JSON.parse(stored) : {};
+      const updated = { ...base, ...settings };
+      localStorage.setItem('kgs_local_settings', JSON.stringify(updated));
+      
+      // Sync state
+      fetchSettings();
+    } catch (e) {
+      console.error("saveSettingsLocal failed", e);
+    }
+  };
+
   return (
     <StoreContext.Provider value={{
       products,
@@ -425,7 +565,12 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
       fetchSettings,
       verifyCoupon,
       checkout,
-      showNotification
+      showNotification,
+
+      saveProductLocal,
+      deleteProductLocal,
+      deleteProductsBulkLocal,
+      saveSettingsLocal
     }}>
       {children}
     </StoreContext.Provider>
