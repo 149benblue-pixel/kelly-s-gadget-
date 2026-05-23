@@ -1,0 +1,1023 @@
+{
+  "products": [
+    {
+      "id": "prod-1779570014844",
+      "name": "Calus P307 plus power bank",
+      "description": "The Calus P307 Plus is a compact 3000mAh power bank designed for emergency and on-the-go charging. It features a lightweight design, USB output for charging smartphones and small devices, and built-in safety protection against overcharging and short circuits. Its portable size makes it easy to carry in a pocket or bag for quick backup power when needed.",
+      "price": 3000,
+      "originalPrice": 3499,
+      "category": "accessories",
+      "imageUrl": "/api/assets/uploads/bc6247b8ca1e418d97f1bd8b0ce21c76.jpg",
+      "stock": 2,
+      "ratingCount": 0,
+      "ratingAverage": 5,
+      "featured": false,
+      "newArrival": true,
+      "bestSeller": false,
+      "specs": {
+        "3000mAh": "Power bank"
+      }
+    },
+    {
+      "id": "prod-1779569711959",
+      "name": "Samsung 25W Pd Adapter usb-c",
+      "description": "The Samsung 25W PD USB-C Adapter is a compact and powerful fast charger designed to quickly and safely charge compatible smartphones, tablets, and other USB-C devices. Featuring 25W Power Delivery (PD) technology, it delivers efficient charging performance while built-in safety protections help guard against overheating, overcharging, and short circuits. Its lightweight design makes it ideal for home, office, and travel use.",
+      "price": 550,
+      "originalPrice": 700,
+      "category": "accessories",
+      "imageUrl": "/api/assets/uploads/img-20260523-wa0145.jpg",
+      "stock": 18,
+      "ratingCount": 0,
+      "ratingAverage": 5,
+      "featured": false,
+      "newArrival": true,
+      "bestSeller": false,
+      "specs": {
+        "Adapter ": "Samsung "
+      }
+    },
+    {
+      "id": "prod-1779569510659",
+      "name": "Q-Seven Top 10",
+      "description": "The Q-Seven Top 10 is a reliable feature phone designed for everyday communication. It features a clear display, dual SIM support, a long-lasting battery, wireless FM radio, Bluetooth connectivity, a bright torchlight, and a durable keypad for comfortable calling and texting. Its simple interface and compact design make it an ideal choice for users seeking a practical and easy-to-use mobile phone.",
+      "price": 1350,
+      "originalPrice": 1500,
+      "category": "smartphones",
+      "imageUrl": "/api/assets/uploads/img-20260523-wa0144.jpg",
+      "stock": 8,
+      "ratingCount": 0,
+      "ratingAverage": 5,
+      "featured": false,
+      "newArrival": true,
+      "bestSeller": false,
+      "specs": {
+        "Q7": "10"
+      }
+    },
+    {
+      "id": "prod-1779566864782",
+      "name": "Multiprotective, Mobile & Classic ",
+      "description": "Strong and attractive ",
+      "price": 350,
+      "originalPrice": 400,
+      "category": "accessories",
+      "imageUrl": "/api/assets/uploads/img-20260523-wa0149.jpg",
+      "stock": 15,
+      "ratingCount": 0,
+      "ratingAverage": 5,
+      "featured": false,
+      "newArrival": true,
+      "bestSeller": false,
+      "specs": {
+        "Pro": "Strong "
+      }
+    },
+    {
+      "id": "prod-1779566659370",
+      "name": "New Fashion Case cover ",
+      "description": "Affordable cover for girls ",
+      "price": 400,
+      "originalPrice": 500,
+      "category": "accessories",
+      "imageUrl": "/api/assets/uploads/img-20260523-wa0148.jpg",
+      "stock": 20,
+      "ratingCount": 0,
+      "ratingAverage": 5,
+      "featured": false,
+      "newArrival": true,
+      "bestSeller": false,
+      "specs": {
+        "Cover ": "Fashion "
+      }
+    },
+    {
+      "id": "prod-1779566488306",
+      "name": "Micro Sd +Adapter    2GB",
+      "description": "A MicroSD Card with Adapter provides reliable storage expansion for smartphones, tablets, cameras, and other compatible devices. The included SD adapter allows the MicroSD card to be used in devices with standard SD card slots, making it ideal for storing photos, videos, music, documents, and other important files with ease and convenience.",
+      "price": 500,
+      "originalPrice": 999,
+      "category": "accessories",
+      "imageUrl": "/api/assets/uploads/img-20260523-wa0150.jpg",
+      "stock": 7,
+      "ratingCount": 0,
+      "ratingAverage": 5,
+      "featured": false,
+      "newArrival": true,
+      "bestSeller": false,
+      "specs": {
+        "Sd ": "Adapter "
+      }
+    },
+    {
+      "id": "prod-1779566246659",
+      "name": "Samsung S11",
+      "description": "The Samsung S11 Earphones deliver clear, balanced sound with enhanced bass for an immersive listening experience. Designed for comfort and durability, they feature an ergonomic fit, a built-in microphone for hands-free calls, and easy connectivity with smartphones, tablets, and other compatible devices. Perfect for music, calls, and everyday use.",
+      "price": 300,
+      "originalPrice": 450,
+      "category": "speakers",
+      "imageUrl": "/api/assets/uploads/img-20260523-wa0151.jpg",
+      "stock": 6,
+      "ratingCount": 0,
+      "ratingAverage": 5,
+      "featured": false,
+      "newArrival": true,
+      "bestSeller": false,
+      "specs": {
+        "Bt": "Samsung "
+      }
+    },
+    {
+      "id": "prod-1779565989258",
+      "name": "FBM AM-04",
+      "description": "The FBM Speaker is a portable Bluetooth speaker designed to deliver clear audio, powerful bass, and reliable wireless connectivity. With its compact design, long-lasting battery, and easy-to-use controls, it is perfect for enjoying music, podcasts, and hands-free calls at home, outdoors, or on the go.",
+      "price": 700,
+      "originalPrice": 1000,
+      "category": "speakers",
+      "imageUrl": "/api/assets/uploads/img-20260523-wa0152.jpg",
+      "stock": 5,
+      "ratingCount": 0,
+      "ratingAverage": 5,
+      "featured": false,
+      "newArrival": true,
+      "bestSeller": false,
+      "specs": {
+        "bm": "Bt"
+      }
+    },
+    {
+      "id": "prod-1779565792900",
+      "name": "Air F9 Pro+",
+      "description": "The Air F9 Pro wireless earbuds deliver clear sound quality, deep bass, and stable Bluetooth connectivity for an enjoyable listening experience. Featuring touch controls, a comfortable ergonomic fit, noise reduction for calls, and a portable charging case with a long-lasting battery, they are perfect for music, calls, gaming, and everyday use.",
+      "price": 650,
+      "originalPrice": 999,
+      "category": "speakers",
+      "imageUrl": "/api/assets/uploads/img-20260523-wa0155.jpg",
+      "stock": 2,
+      "ratingCount": 0,
+      "ratingAverage": 5,
+      "featured": false,
+      "newArrival": true,
+      "bestSeller": false,
+      "specs": {
+        "Bt": "Oraimo"
+      }
+    },
+    {
+      "id": "prod-1779565601290",
+      "name": "HY HOYAN",
+      "description": "The Hy Hoyan is a reliable and user-friendly mobile phone designed for everyday communication. It features a clear display, long-lasting battery life, dual SIM support, wireless FM radio, and a durable keypad, making it ideal for calling, texting, and basic mobile use. Its compact design and dependable performance offer convenience and value for daily needs.",
+      "price": 400,
+      "originalPrice": 500,
+      "category": "speakers",
+      "imageUrl": "/api/assets/uploads/img-20260523-wa0159.jpg",
+      "stock": 17,
+      "ratingCount": 0,
+      "ratingAverage": 5,
+      "featured": false,
+      "newArrival": true,
+      "bestSeller": false,
+      "specs": {
+        "Bt": "Hoyan"
+      }
+    },
+    {
+      "id": "prod-1779565426782",
+      "name": "Tecno T301",
+      "description": "The Tecno T301 is a reliable feature phone designed for everyday communication. It features a bright display, dual SIM support, a long-lasting battery, wireless FM radio, Bluetooth connectivity, a powerful speaker, and a durable keypad for comfortable calling and texting. Its simple interface and dependable performance make it an excellent choice for users seeking a practical and easy-to-use mobile phone.",
+      "price": 1500,
+      "originalPrice": 1999,
+      "category": "smartphones",
+      "imageUrl": "/api/assets/uploads/img-20260523-wa0162.jpg",
+      "stock": 7,
+      "ratingCount": 0,
+      "ratingAverage": 5,
+      "featured": false,
+      "newArrival": true,
+      "bestSeller": false,
+      "specs": {
+        "Phon": "Tecno"
+      }
+    },
+    {
+      "id": "prod-1779565276017",
+      "name": "Nokia 106",
+      "description": "The Nokia 106 is a durable and reliable feature phone built for everyday communication. It features a bright display, long-lasting battery life, a comfortable ergonomic keypad, wireless FM radio, and a sturdy design that can withstand daily use. With its simple interface and dependable performance, it is an ideal choice for calling, texting, and basic mobile needs.",
+      "price": 2000,
+      "originalPrice": 2499,
+      "category": "smartphones",
+      "imageUrl": "/api/assets/uploads/img-20260523-wa0163.jpg",
+      "stock": 7,
+      "ratingCount": 0,
+      "ratingAverage": 5,
+      "featured": false,
+      "newArrival": true,
+      "bestSeller": false,
+      "specs": {
+        "106": "Nokia "
+      }
+    },
+    {
+      "id": "prod-1779565079593",
+      "name": "Raeno R480",
+      "description": "The Raeno R480 is a reliable feature phone designed for simple and efficient communication. It features a clear display, dual SIM support, a long-lasting battery, wireless FM radio, Bluetooth connectivity, a bright flashlight, and a durable keypad for comfortable calling and texting. Its compact design and user-friendly interface make it an excellent choice for everyday mobile use.",
+      "price": 1000,
+      "originalPrice": 1500,
+      "category": "smartphones",
+      "imageUrl": "/api/assets/uploads/img-20260523-wa0167.jpg",
+      "stock": 20,
+      "ratingCount": 0,
+      "ratingAverage": 5,
+      "featured": false,
+      "newArrival": true,
+      "bestSeller": false,
+      "specs": {
+        "R480": "Raeno"
+      }
+    },
+    {
+      "id": "prod-1779564613743",
+      "name": "It 2160",
+      "description": "The Itel 2160 is a durable and easy-to-use feature phone designed for reliable everyday communication. It features a bright display, dual SIM support, a long-lasting battery, wireless FM radio, Bluetooth connectivity, a powerful speaker, and a comfortable keypad for effortless calling and texting. Its compact design and dependable performance make it an ideal choice for users who value simplicity and extended battery life.",
+      "price": 1500,
+      "originalPrice": 1899,
+      "category": "smartphones",
+      "imageUrl": "/api/assets/uploads/img-20260523-wa01681.jpg",
+      "stock": 9,
+      "ratingCount": 0,
+      "ratingAverage": 5,
+      "featured": false,
+      "newArrival": true,
+      "bestSeller": false,
+      "specs": {
+        "Phone": "Itel"
+      }
+    },
+    {
+      "id": "prod-1779564459354",
+      "name": "WPH E1292",
+      "description": "The WPH E1292 is a compact and reliable feature phone built for everyday communication. It features a bright display, dual SIM support, a long-lasting battery, wireless FM radio, Bluetooth connectivity, a powerful torchlight, and a durable keypad for easy calling and texting. Its simple interface and dependable performance make it an excellent choice for users seeking a basic and efficient mobile phone.",
+      "price": 1800,
+      "originalPrice": 1999,
+      "category": "smartphones",
+      "imageUrl": "/api/assets/uploads/img-20260523-wa0169.jpg",
+      "stock": 4,
+      "ratingCount": 0,
+      "ratingAverage": 5,
+      "featured": false,
+      "newArrival": true,
+      "bestSeller": false,
+      "specs": {
+        "Phone ": "WPH"
+      }
+    },
+    {
+      "id": "prod-1779564247201",
+      "name": "LSN 1046",
+      "description": "The LSN 1046 is a dependable feature phone designed for simple and efficient communication. It features a clear display, dual SIM support, a long-lasting battery, wireless FM radio, Bluetooth connectivity, a bright flashlight, and a durable keypad for comfortable calling and texting. Its compact design and reliable performance make it a practical choice for everyday mobile use.",
+      "price": 1200,
+      "originalPrice": 1499,
+      "category": "speakers",
+      "imageUrl": "/api/assets/uploads/img-20260523-wa0172.jpg",
+      "stock": 5,
+      "ratingCount": 0,
+      "ratingAverage": 5,
+      "featured": false,
+      "newArrival": true,
+      "bestSeller": true,
+      "specs": {
+        "Radio ": "Lsn"
+      }
+    },
+    {
+      "id": "prod-1779563983451",
+      "name": "Ifinex N1000F",
+      "description": "The Ifinex N1000F is a practical feature phone designed for users who need multiple SIM support and long battery life. It features a large display, Quad SIM (4 SIM cards) capability, a powerful 3300mAh battery, wireless FM radio, a bright torchlight, and a loud speaker for clear audio. Its durable keypad and simple interface make it ideal for everyday calling, texting, and basic mobile use",
+      "price": 1800,
+      "originalPrice": 2000,
+      "category": "smartphones",
+      "imageUrl": "/api/assets/uploads/img-20260523-wa0170.jpg",
+      "stock": 9,
+      "ratingCount": 0,
+      "ratingAverage": 5,
+      "featured": false,
+      "newArrival": true,
+      "bestSeller": false,
+      "specs": {
+        "Phone ": "Ifinex"
+      }
+    },
+    {
+      "id": "prod-1779563231522",
+      "name": "Itel 2160",
+      "description": "The Itel 2160 is a durable and user-friendly feature phone built for reliable everyday communication. It comes with a bright display, dual SIM support, a long-lasting battery, wireless FM radio, a powerful speaker, Bluetooth connectivity, and a comfortable keypad for easy calling and texting. Its compact design and dependable performance make it an ideal choice for users seeking simplicity and extended battery life.",
+      "price": 1500,
+      "originalPrice": 1850,
+      "category": "smartphones",
+      "imageUrl": "/api/assets/uploads/img-20260523-wa0168.jpg",
+      "stock": 9,
+      "ratingCount": 0,
+      "ratingAverage": 5,
+      "featured": false,
+      "newArrival": true,
+      "bestSeller": false,
+      "specs": {
+        "Call": "Itel"
+      }
+    },
+    {
+      "id": "prod-3",
+      "name": "Samsung Galaxy Watch 6 Pro Active",
+      "description": "Track sports and health with high fidelity. Includes advanced Sleep-Tracking indices, Body Composition analyzer (BIA method), dynamic temperature sensing, dual frequency navigation GPS, and a rugged classic rotating tachymeter profile styled for elite fitness.",
+      "price": 1200,
+      "originalPrice": 1500,
+      "category": "smart-watches",
+      "imageUrl": "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?w=600&auto=format&fit=crop&q=80",
+      "stock": 4,
+      "ratingCount": 94,
+      "ratingAverage": 4.7,
+      "featured": true,
+      "newArrival": true,
+      "bestSeller": false,
+      "specs": {
+        "Bezel Material": "Fine Micro Titanium",
+        "Waterproof Standard": "IP68 & 5ATM Depth",
+        "Health Sensors": "BioActive Suite, Blood Pressure, ECG",
+        "Platform Compatibility": "Android / Wear OS powered"
+      }
+    },
+    {
+      "id": "prod-4",
+      "name": "Premium Studio Earbuds Pro ANC",
+      "description": "Adaptive dual transparency, immersive personal Spatial Audio rendering (dynamic head tracking), customized ultra-comfort tips, and a fine acoustic case charging via USB-C or MagSafe with up to 36 hours of integrated charging capacity.",
+      "price": 1500,
+      "originalPrice": 1800,
+      "category": "accessories",
+      "imageUrl": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&auto=format&fit=crop&q=80",
+      "stock": 8,
+      "ratingCount": 215,
+      "ratingAverage": 4.6,
+      "featured": true,
+      "newArrival": false,
+      "bestSeller": true,
+      "specs": {
+        "ANC Rating": "Up to 45dB cancellation",
+        "Wireless Tech": "Bluetooth 5.3 High Stability",
+        "Driver Spec": "11mm Custom Polymer Dynamic Driver",
+        "Charge Time": "5 min = 1 hour playback"
+      }
+    },
+    {
+      "id": "prod-5",
+      "name": "Galaxy Tab S9 Ultra Slate Carbon",
+      "description": "Large 14.6\" dynamic AMOLED 2X canvas equipped with ultra-fast Qualcomm Snapdragon Gen 2 processing, standard high-precision active S-Pen, IP68 water/dust proofing, and split screen creative workspaces suited for professional designers.",
+      "price": 60000,
+      "originalPrice": 75000,
+      "category": "tablets",
+      "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&auto=format&fit=crop&q=80",
+      "stock": 1,
+      "ratingCount": 68,
+      "ratingAverage": 4.8,
+      "featured": true,
+      "newArrival": true,
+      "bestSeller": false,
+      "specs": {
+        "Display Size": "14.6\" Dynamic AMOLED 120Hz",
+        "Stylus Included": "S-Pen (Active, Low Latency)",
+        "Storage": "256GB Expandable microSD",
+        "Audio Nodes": "Quad Speakers by AKG Dolby Atmos"
+      }
+    },
+    {
+      "id": "prod-6",
+      "name": "Asus ROG Ally Extreme Gaming Console",
+      "description": "Play any game on the couch with AMD Ryzen Z1 Extreme power, high-frame-rate screen, seamless dual-active heat-pipe cooling channels, full ergonomic thumbstick design, and access to all standard Windows libraries.",
+      "price": 15000,
+      "originalPrice": 18000,
+      "category": "gaming",
+      "imageUrl": "https://images.unsplash.com/photo-1605901309584-818e25960a8f?w=600&auto=format&fit=crop&q=80",
+      "stock": 15,
+      "ratingCount": 110,
+      "ratingAverage": 4.5,
+      "featured": true,
+      "newArrival": false,
+      "bestSeller": true,
+      "specs": {
+        "Processor Core": "AMD Ryzen Z1 Extreme Desktop-Grade",
+        "Operating System": "Windows 11 Home OS",
+        "Screen Engine": "7\" IPS 1080p 120Hz Native Sync",
+        "Graphics Engine": "AMD RDNA 3 Integrated Graphics"
+      }
+    },
+    {
+      "id": "prod-7",
+      "name": "Samsung  A07",
+      "description": "Advanced Google-designed Google Tensor G3 chip, AI camera features including Magic Eraser and Audio Magic isolation, pro security architecture, and a bright Actua display that stands out.",
+      "price": 14500,
+      "originalPrice": 18000,
+      "category": "smartphones",
+      "imageUrl": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&auto=format&fit=crop&q=80",
+      "stock": 3,
+      "ratingCount": 54,
+      "ratingAverage": 4.6,
+      "featured": false,
+      "newArrival": true,
+      "bestSeller": true,
+      "specs": {
+        "Processor": "Google Tensor G3 (Titan M2 Security)",
+        "Camera": "50MP Studio Main + 48MP Zoom",
+        "Memory": "12GB High Speed LPDDR5X",
+        "OS Lifespan": "7 Years Core Security Updates"
+      }
+    },
+    {
+      "id": "prod-8",
+      "name": "Studio Master Soundbar Solo",
+      "description": "Upgrade your living room cinematic experience with a plug-and-play Dolby Atmos certified active soundbar. Built-in, self-firing subwoofers bring chest-thumping bass and vocal details directly via a single HDMI eARC cord.",
+      "price": 1800,
+      "originalPrice": 2200,
+      "category": "speakers",
+      "imageUrl": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&auto=format&fit=crop&q=80",
+      "stock": 2,
+      "ratingCount": 39,
+      "ratingAverage": 4.4,
+      "featured": true,
+      "newArrival": false,
+      "bestSeller": true,
+      "specs": {
+        "Audio Decoders": "Dolby Atmos, DTS:X, Stereo HD",
+        "Connectivity": "HDMI eARC, Optical, Dual Bluetooth",
+        "Max Output": "320 Watts Amplified Peak",
+        "Subwoofers": "Dual Action Integrated Cones"
+      }
+    }
+  ],
+  "categories": [
+    {
+      "id": "cat-1",
+      "name": "Smartphones",
+      "slug": "smartphones",
+      "description": "Elite smartphones from Apple, Samsung, and top brands.",
+      "icon": "Smartphone"
+    },
+    {
+      "id": "cat-2",
+      "name": "Laptops",
+      "slug": "laptops",
+      "description": "Powerhouse laptops for work, gaming, and creative tasks.",
+      "icon": "Laptop"
+    },
+    {
+      "id": "cat-3",
+      "name": "Smart Watches",
+      "slug": "smart-watches",
+      "description": "Track your health and keep notifications at your wrist.",
+      "icon": "Watch"
+    },
+    {
+      "id": "cat-4",
+      "name": "Tablets",
+      "slug": "tablets",
+      "description": "The perfect blend of mobile viewing and notebook control.",
+      "icon": "Tablet"
+    },
+    {
+      "id": "cat-5",
+      "name": "Audio Systems & Speakers",
+      "slug": "speakers",
+      "description": "Home theaters, portable Bluetooth and premium speakers.",
+      "icon": "Volume2"
+    },
+    {
+      "id": "cat-6",
+      "name": "Gaming Devices",
+      "slug": "gaming",
+      "description": "Consoles, controller accessories, and high-FPS gear.",
+      "icon": "Gamepad"
+    },
+    {
+      "id": "cat-7",
+      "name": "Accessories & Others",
+      "slug": "accessories",
+      "description": "Premium chargers, adapters, hubs, and protective cases.",
+      "icon": "Cable"
+    }
+  ],
+  "orders": [],
+  "customers": [],
+  "coupons": [
+    {
+      "id": "c-1",
+      "code": "TECH10",
+      "discountType": "percentage",
+      "discountValue": 10,
+      "minOrderValue": 10000,
+      "isActive": true,
+      "expiryDate": "2026-12-31"
+    },
+    {
+      "id": "c-2",
+      "code": "KELLY50",
+      "discountType": "fixed",
+      "discountValue": 5000,
+      "minOrderValue": 45000,
+      "isActive": true,
+      "expiryDate": "2026-12-31"
+    },
+    {
+      "id": "c-3",
+      "code": "FREEKGS",
+      "discountType": "percentage",
+      "discountValue": 5,
+      "minOrderValue": 0,
+      "isActive": true,
+      "expiryDate": "2026-06-30"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "re-1",
+      "productId": "prod-1",
+      "customerName": "Mercy Apondi",
+      "rating": 5,
+      "comment": "Absolutely spectacular. The titanium build is light and feels extremely robust. Fast shipping directly by Kellys Store Team!",
+      "date": "2026-05-15T12:00:00Z"
+    },
+    {
+      "id": "re-2",
+      "productId": "prod-1",
+      "customerName": "Brian Kiprop",
+      "rating": 4,
+      "comment": "Gorgeous OLED, but the camera is slightly bulky. Performance is breathtaking, and M-Pesa automated billing cleared in 5 seconds.",
+      "date": "2026-05-18T14:22:00Z"
+    },
+    {
+      "id": "re-3",
+      "productId": "prod-2",
+      "customerName": "Almasi Omar",
+      "rating": 5,
+      "comment": "Incredible compilation capability for my docker setups. Battery holds easily for a complete workday without plugging. Incredible premium device.",
+      "date": "2026-05-10T09:15:00Z"
+    }
+  ],
+  "activityLogs": [
+    {
+      "id": "log-1779571021204-20",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Update Settings",
+      "details": "Updated store preferences, About Us biographical profile, Contact-Me details, and Media channels.",
+      "timestamp": "2026-05-23T21:17:01.204Z"
+    },
+    {
+      "id": "log-1779570975252-996",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Update Settings",
+      "details": "Updated store preferences, About Us biographical profile, Contact-Me details, and Media channels.",
+      "timestamp": "2026-05-23T21:16:15.252Z"
+    },
+    {
+      "id": "log-1779570938295-535",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Update Settings",
+      "details": "Updated store preferences, About Us biographical profile, Contact-Me details, and Media channels.",
+      "timestamp": "2026-05-23T21:15:38.296Z"
+    },
+    {
+      "id": "log-1779570935282-693",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Update Settings",
+      "details": "Updated store preferences, About Us biographical profile, Contact-Me details, and Media channels.",
+      "timestamp": "2026-05-23T21:15:35.282Z"
+    },
+    {
+      "id": "log-1779570933730-293",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Update Settings",
+      "details": "Updated store preferences, About Us biographical profile, Contact-Me details, and Media channels.",
+      "timestamp": "2026-05-23T21:15:33.730Z"
+    },
+    {
+      "id": "log-1779570933009-688",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Update Settings",
+      "details": "Updated store preferences, About Us biographical profile, Contact-Me details, and Media channels.",
+      "timestamp": "2026-05-23T21:15:33.009Z"
+    },
+    {
+      "id": "log-1779570930761-645",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Update Settings",
+      "details": "Updated store preferences, About Us biographical profile, Contact-Me details, and Media channels.",
+      "timestamp": "2026-05-23T21:15:30.761Z"
+    },
+    {
+      "id": "log-1779570925983-48",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Update Settings",
+      "details": "Updated store preferences, About Us biographical profile, Contact-Me details, and Media channels.",
+      "timestamp": "2026-05-23T21:15:25.983Z"
+    },
+    {
+      "id": "log-1779570014844-308",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Creation",
+      "details": "Created product: \"Calus P307 plus power bank\" (Ksh 3000) with stock: 2.",
+      "timestamp": "2026-05-23T21:00:14.844Z"
+    },
+    {
+      "id": "log-1779569711960-201",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Creation",
+      "details": "Created product: \"Samsung 25W Pd Adapter usb-c\" (Ksh 550) with stock: 18.",
+      "timestamp": "2026-05-23T20:55:11.960Z"
+    },
+    {
+      "id": "log-1779569510659-102",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Creation",
+      "details": "Created product: \"Q-Seven Top 10\" (Ksh 1350) with stock: 8.",
+      "timestamp": "2026-05-23T20:51:50.659Z"
+    },
+    {
+      "id": "log-1779566864783-881",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Creation",
+      "details": "Created product: \"Multiprotective, Mobile & Classic \" (Ksh 350) with stock: 15.",
+      "timestamp": "2026-05-23T20:07:44.783Z"
+    },
+    {
+      "id": "log-1779566659371-387",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Creation",
+      "details": "Created product: \"New Fashion Case cover \" (Ksh 400) with stock: 20.",
+      "timestamp": "2026-05-23T20:04:19.371Z"
+    },
+    {
+      "id": "log-1779566488306-558",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Creation",
+      "details": "Created product: \"Micro Sd +Adapter    2GB\" (Ksh 500) with stock: 7.",
+      "timestamp": "2026-05-23T20:01:28.306Z"
+    },
+    {
+      "id": "log-1779566246659-867",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Creation",
+      "details": "Created product: \"Samsung S11\" (Ksh 300) with stock: 6.",
+      "timestamp": "2026-05-23T19:57:26.659Z"
+    },
+    {
+      "id": "log-1779565989258-124",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Creation",
+      "details": "Created product: \"FBM AM-04\" (Ksh 700) with stock: 5.",
+      "timestamp": "2026-05-23T19:53:09.258Z"
+    },
+    {
+      "id": "log-1779565792900-419",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Creation",
+      "details": "Created product: \"Air F9 Pro+\" (Ksh 650) with stock: 2.",
+      "timestamp": "2026-05-23T19:49:52.900Z"
+    },
+    {
+      "id": "log-1779565601290-315",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Creation",
+      "details": "Created product: \"HY HOYAN\" (Ksh 400) with stock: 17.",
+      "timestamp": "2026-05-23T19:46:41.290Z"
+    },
+    {
+      "id": "log-1779565426782-289",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Creation",
+      "details": "Created product: \"Tecno T301\" (Ksh 1500) with stock: 7.",
+      "timestamp": "2026-05-23T19:43:46.782Z"
+    },
+    {
+      "id": "log-1779565276017-784",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Creation",
+      "details": "Created product: \"Nokia 106\" (Ksh 2000) with stock: 7.",
+      "timestamp": "2026-05-23T19:41:16.017Z"
+    },
+    {
+      "id": "log-1779565079594-249",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Creation",
+      "details": "Created product: \"Raeno R480\" (Ksh 1000) with stock: 20.",
+      "timestamp": "2026-05-23T19:37:59.594Z"
+    },
+    {
+      "id": "log-1779564613743-184",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Creation",
+      "details": "Created product: \"It 2160\" (Ksh 1500) with stock: 9.",
+      "timestamp": "2026-05-23T19:30:13.743Z"
+    },
+    {
+      "id": "log-1779564459355-782",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Creation",
+      "details": "Created product: \"WPH E1292\" (Ksh 1800) with stock: 4.",
+      "timestamp": "2026-05-23T19:27:39.355Z"
+    },
+    {
+      "id": "log-1779564281870-891",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Deletion",
+      "details": "Removed product ID: prod-2 (MacBook Pro 16\" M3 Max Dual-Core) from catalog.",
+      "timestamp": "2026-05-23T19:24:41.870Z"
+    },
+    {
+      "id": "log-1779564268148-585",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Update",
+      "details": "Modified product specs or details for: \"LSN 1046\"",
+      "timestamp": "2026-05-23T19:24:28.148Z"
+    },
+    {
+      "id": "log-1779564247201-785",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Creation",
+      "details": "Created product: \"LSN 1046\" (Ksh 1200) with stock: 5.",
+      "timestamp": "2026-05-23T19:24:07.201Z"
+    },
+    {
+      "id": "log-1779563983452-13",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Creation",
+      "details": "Created product: \"Ifinex N1000F\" (Ksh 1800) with stock: 9.",
+      "timestamp": "2026-05-23T19:19:43.452Z"
+    },
+    {
+      "id": "log-1779563660621-302",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Deletion",
+      "details": "Removed product ID: prod-12 (Lenovo Legion Pro Intel Core i9 Gaming) from catalog.",
+      "timestamp": "2026-05-23T19:14:20.621Z"
+    },
+    {
+      "id": "log-1779563656782-151",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Deletion",
+      "details": "Removed product ID: prod-11 (Logitech MX Master S3 Designer Mouse) from catalog.",
+      "timestamp": "2026-05-23T19:14:16.782Z"
+    },
+    {
+      "id": "log-1779563643782-499",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Deletion",
+      "details": "Removed product ID: prod-10 (Sony PlayStation 5 Pro Slim Console) from catalog.",
+      "timestamp": "2026-05-23T19:14:03.782Z"
+    },
+    {
+      "id": "log-1779563628599-674",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Deletion",
+      "details": "Removed product ID: prod-9 (Pro Wireless Charging Stand 3-in-1) from catalog.",
+      "timestamp": "2026-05-23T19:13:48.599Z"
+    },
+    {
+      "id": "log-1779563614752-452",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Update",
+      "details": "Modified product specs or details for: \"Studio Master Soundbar Solo\"",
+      "timestamp": "2026-05-23T19:13:34.752Z"
+    },
+    {
+      "id": "log-1779563566778-792",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Update",
+      "details": "Modified product specs or details for: \"Samsung  A07\"",
+      "timestamp": "2026-05-23T19:12:46.778Z"
+    },
+    {
+      "id": "log-1779563512526-784",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Update",
+      "details": "Modified product specs or details for: \"Google Pixel 8 Pro Obsidian Night\"",
+      "timestamp": "2026-05-23T19:11:52.526Z"
+    },
+    {
+      "id": "log-1779563491348-645",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Update",
+      "details": "Modified product specs or details for: \"Asus ROG Ally Extreme Gaming Console\"",
+      "timestamp": "2026-05-23T19:11:31.348Z"
+    },
+    {
+      "id": "log-1779563472738-862",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Update",
+      "details": "Modified product specs or details for: \"Asus ROG Ally Extreme Gaming Console\"",
+      "timestamp": "2026-05-23T19:11:12.738Z"
+    },
+    {
+      "id": "log-1779563443599-366",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Update",
+      "details": "Modified product specs or details for: \"Galaxy Tab S9 Ultra Slate Carbon\"",
+      "timestamp": "2026-05-23T19:10:43.599Z"
+    },
+    {
+      "id": "log-1779563393301-498",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Update",
+      "details": "Modified product specs or details for: \"Premium Studio Earbuds Pro ANC\"",
+      "timestamp": "2026-05-23T19:09:53.301Z"
+    },
+    {
+      "id": "log-1779563350046-12",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Update",
+      "details": "Modified product specs or details for: \"Samsung Galaxy Watch 6 Pro Active\"",
+      "timestamp": "2026-05-23T19:09:10.046Z"
+    },
+    {
+      "id": "log-1779563291748-984",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Update",
+      "details": "Modified product specs or details for: \"MacBook Pro 16\" M3 Max Dual-Core\"",
+      "timestamp": "2026-05-23T19:08:11.748Z"
+    },
+    {
+      "id": "log-1779563256390-508",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Update",
+      "details": "Modified product specs or details for: \"Itel 2160\"",
+      "timestamp": "2026-05-23T19:07:36.390Z"
+    },
+    {
+      "id": "log-1779563242312-594",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Deletion",
+      "details": "Removed product ID: prod-1 (iPhone 15 Pro Max Titanium) from catalog.",
+      "timestamp": "2026-05-23T19:07:22.312Z"
+    },
+    {
+      "id": "log-1779563231522-672",
+      "userId": "admin-1",
+      "userName": "Kelly Super Admin",
+      "userEmail": "admin@kellys.com",
+      "role": "admin",
+      "action": "Product Creation",
+      "details": "Created product: \"Itel 2160\" (Ksh 1500) with stock: 20.",
+      "timestamp": "2026-05-23T19:07:11.522Z"
+    },
+    {
+      "id": "log-seed",
+      "userId": "dev",
+      "userName": "System Developer",
+      "userEmail": "dev@kellys.com",
+      "role": "developer",
+      "action": "Database Initial Seed",
+      "details": "Successfully seeded Kellys Gadgets Database with 12 electronics, 7 categories, and 3 promotional coupons.",
+      "timestamp": "2026-05-23T19:03:05.764Z"
+    }
+  ],
+  "settings": {
+    "storeName": "Kelly's Gadgets Store",
+    "contactEmail": "149benblue@gmail.com",
+    "contactPhone": "+254 787 272 428",
+    "currency": "Ksh",
+    "taxRate": 16,
+    "shippingFee": 1500,
+    "mpesaPaybill": "*******",
+    "paypalEmail": "billing@kellys.com",
+    "bankDetails": "Kelly Gadgets Store LTD, Equity Bank Kenya, Acc: 120034455828",
+    "aboutText": "Welcome to Kelly's Gadgets Store, the premier technology destination established in 2026. Inspired by the lack of direct, high-quality, authentic consumer electronics retailers, Kelly Super Admin launched this platform to bridge the gap by offering premium smartphones, productivity laptops, accessories, elite smart watches, screen tablets, immersive speakers, and modern high-frame combat consoles.\n\nEvery single item in our inventory is strictly sourced directly from official manufacturing headquarters, ensuring that counterfeit risks are eliminated.",
+    "aboutPledge": "To respect consumer trust. We avoid the inflation common in third-party retail channels by providing real-time stock balances, dynamic discount triggers, automated invoice billing, and an absolute commitment to customer security under the surveillance of our two primary operations executives.",
+    "contactAddress": "Lavin Tower, First Floor, Sophia, Homabay, Kenya",
+    "contactMapCoords": "-0.5273,34.4571",
+    "socialFacebook": "https://www.facebook.com/profile.php?id=61583496104122",
+    "socialTwitter": "https://x.com/Benvolio149",
+    "socialInstagram": "https://www.instagram.com/benvolio.ke?igsh=MTRicDE1eWhpY3gwbA==",
+    "socialYoutube": ""
+  }
+}

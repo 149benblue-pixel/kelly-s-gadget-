@@ -232,7 +232,7 @@ export default function App() {
                 <div className="max-w-xs relative z-10">
                   <span className="text-[10px] font-extrabold uppercase bg-emerald-500 text-white px-2 py-0.5 rounded tracking-wide font-mono">Operations Special</span>
                   <h4 className="text-xl sm:text-2xl font-black mt-2 leading-tight">M3 MacBook Pro 16" Coding Rigs.</h4>
-                  <p className="text-xs text-emerald-200 mt-1">Direct logistics dispatches within 24 hours to CBD Standard Street Nairobi offices.</p>
+                  <p className="text-xs text-emerald-200 mt-1">Direct logistics dispatches safely to our Sophia Road Homabay head office.</p>
                 </div>
                 <button 
                   onClick={() => handleCategorySelection('laptops')}
@@ -253,7 +253,7 @@ export default function App() {
                 <div className="italic text-base sm:text-lg text-gray-700 leading-relaxed font-sans max-w-2xl mx-auto mb-6">
                   "Kelly's Gadgets Store completely solved my corporate notebook procurement concern! We cleared multiple customized laptops using Safaricom M-Pesa STK prompts without any banking latency. First-day courier was pristine!"
                 </div>
-                <p className="text-xs sm:text-sm font-bold text-blue-950 uppercase">— Kelvin Gitau, Tech Operations lead (Nairobi CBD)</p>
+                <p className="text-xs sm:text-sm font-bold text-blue-950 uppercase">— Kelvin Gitau, Tech Operations lead (Homabay Branch)</p>
               </div>
             </section>
 
@@ -422,7 +422,7 @@ export default function App() {
                 Kelly's <span className="text-blue-500">Gadgets Store</span>
               </span>
               <p className="text-xs leading-relaxed text-slate-400 max-w-xs font-sans">
-                Premium authorized consumer electronics retailer matching smartphones, productivity laptops, smart watches, sound speakers, tablets, accessories, and elite gaming consoles. Established within CBD Nairobi.
+                Premium authorized consumer electronics retailer matching smartphones, productivity laptops, smart watches, sound speakers, tablets, accessories, and elite gaming consoles. Established within Homabay.
               </p>
               
               {/* Social links */}
@@ -458,7 +458,7 @@ export default function App() {
               <h5 className="text-slate-100 font-bold uppercase tracking-wider text-xs">Kelly's Company</h5>
               <div className="flex flex-col gap-2 font-medium">
                 <button onClick={() => openAboutInformationPage('about')} className="text-left hover:text-white transition-colors cursor-pointer text-xs">About Us Bio</button>
-                <button onClick={() => openAboutInformationPage('contact')} className="text-left hover:text-white transition-colors cursor-pointer text-xs">Nairobi CBD Offices Map Location</button>
+                <button onClick={() => openAboutInformationPage('contact')} className="text-left hover:text-white transition-colors cursor-pointer text-xs">Homabay Offices Map Location</button>
                 <button onClick={() => openAboutInformationPage('privacy')} className="text-left hover:text-white transition-colors cursor-pointer text-xs">Privacy Integrity Policy</button>
                 <button onClick={() => openAboutInformationPage('terms')} className="text-left hover:text-white transition-colors cursor-pointer text-xs">Terms & Conditions</button>
               </div>
@@ -468,9 +468,9 @@ export default function App() {
             <div className="md:col-span-3 space-y-3 text-xs" id="footer-coordinates">
               <h5 className="text-slate-100 font-bold uppercase tracking-wider text-xs">Physical Coordinates</h5>
               <div className="space-y-2 leading-relaxed text-slate-400">
-                <p>📍 Standard Towers, Suite 12B, Standard Street, CBD, Nairobi, Kenya</p>
-                <p>📞 Phone support: +254 712 345 678</p>
-                <p className="font-semibold text-white">⌚ Open Mon - Sun: 07:00 AM to 10:00 PM</p>
+                <p>📍 {websiteSettings?.contactAddress || "Lavin Tower, First Floor, Sophia, Homabay, Kenya"}</p>
+                <p>📞 Phone support: {websiteSettings?.contactPhone || "+254 787 272 428"}</p>
+                <p className="font-semibold text-white">⌚ Open Mon - Sat: 8:00 AM to 5:00 PM</p>
               </div>
             </div>
 
@@ -481,7 +481,7 @@ export default function App() {
           {/* Copyright ribbon */}
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-medium text-slate-500" id="footer-copyright-strip">
             <span>© 2026 Kelly's Gadgets Store LTD. Exclusive authorized consumer electronics retailer. All Rights Reserved.</span>
-            <span>Made with ❤️ in Nairobi CBD</span>
+            <span>Made with ❤️ in Homabay</span>
           </div>
         </div>
       </footer>

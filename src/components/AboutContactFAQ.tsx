@@ -185,11 +185,11 @@ Every single item in our inventory is strictly sourced directly from official ma
                   <div className="space-y-3.5 text-sm text-gray-600">
                     <div className="flex items-start gap-2.5">
                       <MapPin className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
-                      <span>{websiteSettings.contactAddress || "Standard Building, 1st Floor Suite 12B, Standard Street, CBD, Nairobi, Kenya"}</span>
+                      <span>{websiteSettings.contactAddress || "Lavin Tower, First Floor, Sophia, Homabay, Kenya"}</span>
                     </div>
                     <div className="flex items-center gap-2.5">
                       <Phone className="w-5 h-5 text-blue-600 shrink-0" />
-                      <span>{websiteSettings.contactPhone || "+254 712 345 678"} | +254 700 111 222</span>
+                      <span>{websiteSettings.contactPhone || "+254 787 272 428"}</span>
                     </div>
                     <div className="flex items-center gap-2.5">
                       <Mail className="w-5 h-5 text-blue-600 shrink-0" />
@@ -231,13 +231,13 @@ Every single item in our inventory is strictly sourced directly from official ma
                         <MapPin className="text-red-500 w-4 h-4 animate-bounce" />
                         <div>
                           <p className="text-blue-950 font-bold">{websiteSettings.storeName || "Kelly's Gadgets Store"} Headquarter</p>
-                          <p className="text-[10px] text-gray-500">Nairobi, Kenya</p>
+                          <p className="text-[10px] text-gray-500">Homabay, Kenya</p>
                         </div>
                       </div>
 
                       {/* Map abstract street graphics */}
                       <div className="absolute inset-x-0 top-1/3 bottom-12 flex flex-col justify-center pointer-events-none opacity-40">
-                        <div className="h-6 bg-blue-100 border-y border-blue-200 flex items-center justify-center font-mono text-[9px] text-blue-800 tracking-widest font-bold">STANDARD STREET</div>
+                        <div className="h-6 bg-blue-100 border-y border-blue-200 flex items-center justify-center font-mono text-[9px] text-blue-800 tracking-widest font-bold">SOPHIA ROAD, HOMABAY</div>
                         <div className="h-10 bg-gray-100 w-6 absolute left-1/2 -top-4 border-x border-gray-300 transform -rotate-12" />
                         <div className="h-10 bg-gray-100 w-6 absolute right-12 bottom-0 border-x border-gray-300 transform rotate-45" />
                       </div>
@@ -358,7 +358,7 @@ Every single item in our inventory is strictly sourced directly from official ma
                   Need Immediate Telephonic Assistance?
                 </h4>
                 <p className="text-xs sm:text-sm text-sky-900 leading-relaxed">
-                  Call our live desk inside CBD Nairobi at <strong>+254 712 345 678</strong>. We are active Monday through Sunday from 07:00 AM to 10:00 PM East African Standard Time (EAT).
+                  Call our live desk inside Homabay at <strong>{websiteSettings.contactPhone || "+254 787 272 428"}</strong>. We are active Monday – Saturday, 8:00 AM – 5:00 PM East African Standard Time (EAT).
                 </p>
               </div>
 

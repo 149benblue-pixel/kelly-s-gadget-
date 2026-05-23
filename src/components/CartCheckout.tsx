@@ -445,7 +445,7 @@ export default function CartCheckout() {
                     value={shippingAddress}
                     onChange={(e) => setShippingAddress(e.target.value)}
                     className="w-full px-4 py-2 border border-gray-200 rounded-lg text-sm bg-gray-50/50"
-                    placeholder="Standard Towers, Suit 4C, Standard Street, Nairobi"
+                    placeholder="Lavin Tower, First Floor, Sophia, Homabay, Kenya"
                   />
                 </div>
               </div>
@@ -497,7 +497,7 @@ export default function CartCheckout() {
                         value={mpesaPhone}
                         onChange={(e) => setMpesaPhone(e.target.value)}
                         className="w-full px-4 py-2 border border-gray-200 rounded-lg text-sm bg-white"
-                        placeholder="e.g. +254 712 345 678"
+                        placeholder="e.g. +254 787 272 428"
                       />
                       <p className="text-[11px] text-gray-400 mt-1">A Safaricom STK Push query will sound on your display handset after clicking trigger. Input PIN to unlock clearance.</p>
                     </div>
@@ -684,7 +684,7 @@ export default function CartCheckout() {
                 Customer Support Escalation
               </h4>
               <p className="text-sky-900 leading-relaxed font-sans">
-                By ordering, the system fires off a simulated dynamic SMS and secure invoice dispatch directly to your verified contact targets. If you encounter any clearance latency, please call standard operators directly at +254 712 345 678.
+                By ordering, the system fires off a simulated dynamic SMS and secure invoice dispatch directly to your verified contact targets. If you encounter any clearance latency, please call standard operators directly at {websiteSettings?.contactPhone || "+254 787 272 428"}.
               </p>
             </div>
 

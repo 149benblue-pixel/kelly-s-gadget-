@@ -154,7 +154,7 @@ export default function AdminPanel() {
     if (websiteSettings) {
       setStoreNameForm(websiteSettings.storeName || "Kelly's Gadgets Store");
       setContactEmailForm(websiteSettings.contactEmail || 'sales@kellys.com');
-      setContactPhoneForm(websiteSettings.contactPhone || '+254 712 345 678');
+      setContactPhoneForm(websiteSettings.contactPhone || '+254 787 272 428');
       setTaxRateForm(websiteSettings.taxRate || 16);
       setShippingFeeForm(websiteSettings.shippingFee !== undefined ? websiteSettings.shippingFee : 1500);
       setPaybillForm(websiteSettings.mpesaPaybill || '5123444');
@@ -1610,7 +1610,7 @@ export default function AdminPanel() {
                       type="text"
                       value={contactAddressForm}
                       onChange={(e) => setContactAddressForm(e.target.value)}
-                      placeholder="e.g. Standard Building, 1st Floor Suite 12B, CBD, Nairobi, Kenya"
+                      placeholder="e.g. Lavin Tower, First Floor, Sophia, Homabay, Kenya"
                       className="w-full px-3 py-2 text-xs border border-gray-200 bg-white rounded-lg focus:outline-hidden focus:border-blue-500"
                     />
                   </div>
@@ -1630,7 +1630,7 @@ export default function AdminPanel() {
                       type="text"
                       value={contactPhoneForm}
                       onChange={(e) => setContactPhoneForm(e.target.value)}
-                      placeholder="e.g. +254 712 345 678"
+                      placeholder="e.g. +254 787 272 428"
                       className="w-full px-3 py-2 text-xs border border-gray-200 bg-white rounded-lg focus:outline-hidden focus:border-blue-500"
                     />
                   </div>

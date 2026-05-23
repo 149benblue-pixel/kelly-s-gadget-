@@ -143,7 +143,7 @@ export default function CustomerAccount() {
                   <input 
                     type="text" value={regAddress} onChange={(e) => setRegAddress(e.target.value)}
                     className="w-full px-4 py-2 text-sm border border-gray-200 rounded-lg focus:outline-hidden"
-                    placeholder="e.g. Standard Towers Suite 12B, Nairobi"
+                    placeholder="e.g. Lavin Tower, First Floor, Sophia, Homabay"
                   />
                 </div>
                 <button 
@@ -355,7 +355,7 @@ export default function CustomerAccount() {
                                 <body>
                                   <div style="text-align: center;">
                                     <h2>Kelly's Gadgets Store Invoicing Authority</h2>
-                                    <p>Standard CBD Nairobi • Sales Dept</p>
+                                    <p>Homabay Sophia • Sales Dept</p>
                                   </div>
                                   <hr />
                                   <div style="display: flex; justify-content: space-between;">

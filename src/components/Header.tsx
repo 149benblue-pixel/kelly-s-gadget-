@@ -35,7 +35,8 @@ export default function Header() {
     setView, 
     currentView,
     categories,
-    fetchProducts
+    fetchProducts,
+    websiteSettings
   } = useStore();
 
   const [searchWord, setSearchWord] = useState('');
@@ -75,8 +76,8 @@ export default function Header() {
       <div className="bg-blue-900 text-white text-[12px] py-2 px-4" id="header-top-ribbon">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-1.5 font-sans">
           <div className="flex gap-4">
-            <span>📞 Call Us: <strong>+254 712 345 678</strong></span>
-            <span className="hidden sm:inline">📍 Standard Street, Nairobi, Kenya (Kelly's building)</span>
+            <span>📞 Call Us: <strong>{websiteSettings?.contactPhone || "+254 787 272 428"}</strong></span>
+            <span className="hidden sm:inline">📍 {websiteSettings?.contactAddress || "Lavin Tower, First Floor, Sophia, Homabay, Kenya"}</span>
           </div>
           <div className="flex items-center gap-3">
             <span className="bg-blue-800 text-blue-200 px-2 py-0.5 rounded text-[10px] font-mono tracking-tight font-semibold">2-ADMIN LIMIT CONTROL ON</span>

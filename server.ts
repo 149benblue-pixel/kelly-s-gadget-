@@ -336,7 +336,7 @@ const initialReviews = [
 const defaultSettings = {
   storeName: "Kelly's Gadgets Store",
   contactEmail: "sales@kellys.com",
-  contactPhone: "+254 712 345 678",
+  contactPhone: "+254 787 272 428",
   currency: "Ksh",
   taxRate: 16, // 16% VAT typical
   shippingFee: 1500,
@@ -345,8 +345,8 @@ const defaultSettings = {
   bankDetails: "Kelly Gadgets Store LTD, Equity Bank Kenya, Acc: 120034455828",
   aboutText: "Welcome to Kelly's Gadgets Store, the premier technology destination established in 2026. Inspired by the lack of direct, high-quality, authentic consumer electronics retailers, Kelly Super Admin launched this platform to bridge the gap by offering premium smartphones, productivity laptops, accessories, elite smart watches, screen tablets, immersive speakers, and modern high-frame combat consoles.\n\nEvery single item in our inventory is strictly sourced directly from official manufacturing headquarters, ensuring that counterfeit risks are eliminated.",
   aboutPledge: "To respect consumer trust. We avoid the inflation common in third-party retail channels by providing real-time stock balances, dynamic discount triggers, automated invoice billing, and an absolute commitment to customer security under the surveillance of our two primary operations executives.",
-  contactAddress: "Standard Building, 1st Floor Suite 12B, Standard Street, CBD, Nairobi, Kenya",
-  contactMapCoords: "-1.2829,36.8225",
+  contactAddress: "Lavin Tower, First Floor, Sophia, Homabay, Kenya",
+  contactMapCoords: "-0.5273,34.4571",
   socialFacebook: "https://facebook.com",
   socialTwitter: "https://twitter.com",
   socialInstagram: "https://instagram.com",
@@ -509,7 +509,7 @@ app.post('/api/auth/login', (req, res) => {
     const adminUser = adminAccounts[0];
     appendActivityLog(adminUser.email, adminUser.name, 'admin', 'Admin Login', 'Super Admin logged in successfully.');
     return res.json({
-      user: { ...adminUser, address: 'Headquarters, Nairobi' },
+      user: { ...adminUser, address: 'Headquarters, Homabay' },
       token: `token-admin-super-${adminUser.id}`
     });
   }
@@ -518,7 +518,7 @@ app.post('/api/auth/login', (req, res) => {
     const adminUser = adminAccounts[1];
     appendActivityLog(adminUser.email, adminUser.name, 'admin', 'Admin Login', 'Operations Manager logged in successfully.');
     return res.json({
-      user: { ...adminUser, address: 'Nairobi Office' },
+      user: { ...adminUser, address: 'Homabay Office' },
       token: `token-admin-manager-${adminUser.id}`
     });
   }
