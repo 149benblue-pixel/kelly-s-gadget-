@@ -1,0 +1,6 @@
+{
+  "name": "Kelly's Gadgets Store",
+  "description": "A modern, professional e-commerce store for smartphones, laptops, accessories, and other premium electronics, featuring full-stack cart, customer accounts, and a secure administrator dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
