@@ -479,6 +479,7 @@ app.post('/api/auth/register', (req, res) => {
     id: `cust-${Date.now()}`,
     name,
     email: emailClean,
+    password,
     phone: phone || '',
     address: address || '',
     createdAt: new Date().toISOString(),
@@ -490,8 +491,18 @@ app.post('/api/auth/register', (req, res) => {
 
   appendActivityLog(newCust.email, newCust.name, 'customer', 'Customer Registration', `A standard customer account was created.`);
 
+  const responseUser = {
+    id: newCust.id,
+    name: newCust.name,
+    email: newCust.email,
+    phone: newCust.phone,
+    address: newCust.address,
+    createdAt: newCust.createdAt,
+    role: newCust.role
+  };
+
   res.status(201).json({
-    user: newCust,
+    user: responseUser,
     token: `token-cust-${newCust.id}-${Buffer.from(newCust.email).toString('base64')}`
   });
 });
@@ -533,15 +544,54 @@ app.post('/api/auth/login', (req, res) => {
   const db = readDB();
   const customer = db.customers.find(c => c.email.toLowerCase() === emailClean);
   if (customer) {
+    if (customer.password && customer.password !== password) {
+      appendActivityLog(customer.email, customer.name || 'Customer', 'customer', 'Wrong Password Attempt', 'Standard customer typed incorrect password.');
+      return res.status(401).json({ error: 'Wrong email or password' });
+    }
     // In a fully-loaded design, standard customer logging matches right away
     appendActivityLog(customer.email, customer.name, 'customer', 'Customer Login', 'Logged in to e-commerce storefront.');
     return res.json({
-      user: customer,
+      user: {
+        id: customer.id,
+        name: customer.name,
+        email: customer.email,
+        phone: customer.phone,
+        address: customer.address,
+        createdAt: customer.createdAt,
+        role: customer.role
+      },
       token: `token-cust-${customer.id}-${Buffer.from(customer.email).toString('base64')}`
     });
   }
 
   return res.status(401).json({ error: 'Wrong email or password' });
+});
+
+app.post('/api/auth/forgot-password', (req, res) => {
+  const { email, newPassword } = req.body;
+  if (!email || !newPassword) {
+    return res.status(400).json({ error: 'Email and new password are required' });
+  }
+
+  const emailClean = email.toLowerCase().trim();
+
+  // Guard: Admin password resets are BLOCKED via public storefront endpoint
+  if (emailClean === 'admin@kellys.com' || emailClean === 'manager@kellys.com' || emailClean.endsWith('@kellys.com')) {
+    appendActivityLog(emailClean, 'Anonymous Intruder', 'malicious', 'Security Alarm', 'Attempted unauthorized password reset of administrative credentials.');
+    return res.status(403).json({ error: 'Administrative security credentials cannot be modified via storefront reset channels.' });
+  }
+
+  const db = readDB();
+  const index = db.customers.findIndex(c => c.email.toLowerCase() === emailClean);
+  if (index !== -1) {
+    db.customers[index].password = newPassword;
+    writeDB(db);
+
+    appendActivityLog(emailClean, db.customers[index].name, 'customer', 'Password Reset', 'Customer successfully updated their account credentials via forgot password form.');
+    return res.json({ success: true, message: 'Password updated successfully' });
+  }
+
+  return res.status(404).json({ error: 'No registered customer account matching this email address is cataloged.' });
 });
 
 // Middleware Checkers

@@ -290,6 +290,7 @@ interface StoreContextType {
   login: (email: string, pass: string) => Promise<boolean>;
   registerCustomer: (payload: any) => Promise<boolean>;
   logout: () => void;
+  resetPassword: (email: string, newPass: string) => Promise<boolean>;
   
   // Fetchers
   fetchProducts: (filters?: any) => Promise<void>;
@@ -643,11 +644,12 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
   };
 
   const login = async (email: string, pass: string): Promise<boolean> => {
+    const emailClean = email.toLowerCase().trim();
     try {
       const res = await fetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password: pass })
+        body: JSON.stringify({ email: emailClean, password: pass })
       });
       const data = await res.json();
       if (res.ok) {
@@ -665,6 +667,52 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
         }
         return true;
       } else {
+        // Fallback recovery: look up customer in Firestore cloud to restore state if server recycled
+        if (emailClean !== 'admin@kellys.com' && emailClean !== 'manager@kellys.com') {
+          try {
+            const customerRef = doc(db, 'customers', emailClean);
+            const customerSnap = await getDoc(customerRef);
+            if (customerSnap.exists()) {
+              const cloudCust = customerSnap.data();
+              if (cloudCust.password === pass) {
+                // Re-register customer automatically in the recycled backend
+                const regRes = await fetch('/api/auth/register', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                    name: cloudCust.name,
+                    email: cloudCust.email,
+                    password: cloudCust.password,
+                    phone: cloudCust.phone,
+                    address: cloudCust.address
+                  })
+                });
+
+                if (regRes.ok) {
+                  // Retry logging in now that local state has been synchronized!
+                  const loginRes = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: emailClean, password: pass })
+                  });
+                  if (loginRes.ok) {
+                    const loginData = await loginRes.json();
+                    setUser(loginData.user);
+                    setAuthToken(loginData.token);
+                    localStorage.setItem('kgs_user', JSON.stringify(loginData.user));
+                    localStorage.setItem('kgs_token', loginData.token);
+                    showNotification(`Welcome back, ${loginData.user.name}! (Session restored)`, 'success');
+                    setView('home');
+                    return true;
+                  }
+                }
+              }
+            }
+          } catch (cloudErr) {
+            console.error("Cloud customer lookup/restore fallback failed", cloudErr);
+          }
+        }
+
         showNotification(data.error || "Invalid sign-in credentials", 'error');
         return false;
       }
@@ -688,6 +736,24 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
         setAuthToken(data.token);
         localStorage.setItem('kgs_user', JSON.stringify(data.user));
         localStorage.setItem('kgs_token', data.token);
+
+        // Sync standard customer details into persistent Firestore database so they are never lost
+        try {
+          const customerRef = doc(db, 'customers', payload.email.toLowerCase().trim());
+          await setDoc(customerRef, {
+            id: data.user.id,
+            name: payload.name,
+            email: payload.email.toLowerCase().trim(),
+            password: payload.password,
+            phone: payload.phone || '',
+            address: payload.address || '',
+            createdAt: data.user.createdAt || new Date().toISOString(),
+            role: 'customer'
+          });
+        } catch (fsErr) {
+          console.error("Failed cloud syncing customer profile", fsErr);
+        }
+
         showNotification(`Account created successfully! Welcome to Kelly's Gadgets.`, 'success');
         setView('home');
         return true;
@@ -709,6 +775,37 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
     localStorage.removeItem('kgs_token');
     showNotification("Successfully logged out. See you again soon!", 'info');
     setView('home');
+  };
+
+  const resetPassword = async (email: string, newPass: string): Promise<boolean> => {
+    const emailClean = email.toLowerCase().trim();
+    try {
+      const res = await fetch('/api/auth/forgot-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: emailClean, newPassword: newPass })
+      });
+      const data = await res.json();
+      if (res.ok) {
+        showNotification("Security credentials updated successfully!", "success");
+        
+        // Sync new password to persistent Firestore database if found in cloud
+        try {
+          const customerRef = doc(db, 'customers', emailClean);
+          await setDoc(customerRef, { password: newPass }, { merge: true });
+        } catch (fsErr) {
+          console.error("Failed cloud syncing updated password", fsErr);
+        }
+        return true;
+      } else {
+        showNotification(data.error || "Reset password request rejected", "error");
+        return false;
+      }
+    } catch (e) {
+      console.error(e);
+      showNotification("Server connect failure during reset", "error");
+      return false;
+    }
   };
 
   const checkout = async (details: any) => {
@@ -897,6 +994,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
       login,
       registerCustomer,
       logout,
+      resetPassword,
       fetchProducts,
       fetchCategories,
       fetchOrderHistory,

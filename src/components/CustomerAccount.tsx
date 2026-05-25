@@ -27,13 +27,19 @@ export default function CustomerAccount() {
     fetchOrderHistory, 
     setView,
     setTrackedOrderNumber,
-    showNotification
+    showNotification,
+    resetPassword
   } = useStore();
 
   const [isRegisterMode, setIsRegisterMode] = useState(false);
+  const [isForgotMode, setIsForgotMode] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   
+  // Forgot password fields
+  const [forgotEmail, setForgotEmail] = useState('');
+  const [forgotNewPassword, setForgotNewPassword] = useState('');
+
   // Register fields
   const [regName, setRegName] = useState('');
   const [regEmail, setRegEmail] = useState('');
@@ -76,6 +82,19 @@ export default function CustomerAccount() {
     }
   };
 
+  const handleForgotSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!forgotEmail || !forgotNewPassword) return;
+    setIsSubmitting(true);
+    const success = await resetPassword(forgotEmail, forgotNewPassword);
+    setIsSubmitting(false);
+    if (success) {
+      setForgotEmail('');
+      setForgotNewPassword('');
+      setIsForgotMode(false);
+    }
+  };
+
   const triggerQuickFill = (emailStr: string, passStr: string) => {
     setEmail(emailStr);
     setPassword(passStr);
@@ -97,13 +116,43 @@ export default function CustomerAccount() {
           {/* Main Input Credentials Card */}
           <div className="md:col-span-7 bg-white border border-gray-150 p-6 sm:p-8 rounded-2xl shadow-sm">
             <h2 className="text-xl sm:text-2xl font-extrabold text-blue-950 mb-2">
-              {isRegisterMode ? "Create Customer Account" : "Access Customer Storefront"}
+              {isForgotMode ? "Reset Secure Password" : isRegisterMode ? "Create Customer Account" : "Access Customer Storefront"}
             </h2>
             <p className="text-xs text-gray-400 mb-6 font-medium">
-              Join Kelly's Gadgets premium club to review invoice histories and secure trackers.
+              {isForgotMode 
+                ? "Provide your registered email address and desired new password to update security coordinates." 
+                : isRegisterMode
+                ? "Join Kelly's Gadgets premium club to review invoice histories and secure trackers."
+                : "Join Kelly's Gadgets premium club to review invoice histories and secure trackers."}
             </p>
 
-            {isRegisterMode ? (
+            {isForgotMode ? (
+              // FORGOT PASSWORD FORM
+              <form onSubmit={handleForgotSubmit} className="space-y-4" id="forgot-password-block">
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Registered Email Address *</label>
+                  <input 
+                    type="email" required value={forgotEmail} onChange={(e) => setForgotEmail(e.target.value)}
+                    className="w-full px-4 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-hidden bg-gray-50/50"
+                    placeholder="Provide your cataloged email, e.g. mutua@domain.com"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 uppercase mb-1">New Desired Password *</label>
+                  <input 
+                    type="password" required value={forgotNewPassword} onChange={(e) => setForgotNewPassword(e.target.value)}
+                    className="w-full px-4 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-hidden bg-gray-50/50"
+                    placeholder="••••••••"
+                  />
+                </div>
+                <button 
+                  type="submit" disabled={isSubmitting}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg text-sm cursor-pointer transition-colors shadow-sm"
+                >
+                  {isSubmitting ? "Updating Security Credentials..." : "Reset Password & Authorize"}
+                </button>
+              </form>
+            ) : isRegisterMode ? (
               // REGISTER FORM
               <form onSubmit={handleRegisterSubmit} className="space-y-4" id="registration-block">
                 <div>
@@ -165,7 +214,19 @@ export default function CustomerAccount() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Account Password *</label>
+                  <div className="flex justify-between items-center mb-1">
+                    <label className="block text-xs font-bold text-gray-700 uppercase">Account Password *</label>
+                    <button 
+                      type="button"
+                      onClick={() => {
+                        setIsForgotMode(true);
+                        setIsRegisterMode(false);
+                      }}
+                      className="text-[11px] font-semibold text-blue-600 hover:underline cursor-pointer"
+                    >
+                      Forgot Password?
+                    </button>
+                  </div>
                   <input 
                     type="password" required value={password} onChange={(e) => setPassword(e.target.value)}
                     className="w-full px-4 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-hidden bg-gray-50/50"
@@ -184,10 +245,20 @@ export default function CustomerAccount() {
             {/* Toggle Switch */}
             <div className="text-center mt-6">
               <button 
-                onClick={() => setIsRegisterMode(!isRegisterMode)}
+                onClick={() => {
+                  if (isForgotMode) {
+                    setIsForgotMode(false);
+                  } else {
+                    setIsRegisterMode(!isRegisterMode);
+                  }
+                }}
                 className="text-xs font-semibold text-blue-600 hover:underline cursor-pointer"
               >
-                {isRegisterMode ? "Already registered? Clear Sign In" : "New e-shopper? Register standard client account"}
+                {isForgotMode 
+                  ? "Return to Secure Sign In" 
+                  : isRegisterMode 
+                  ? "Already registered? Clear Sign In" 
+                  : "New e-shopper? Register standard client account"}
               </button>
             </div>
           </div>

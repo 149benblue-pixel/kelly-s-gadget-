@@ -84,6 +84,22 @@
         "contactPhone": { "type": "string" },
         "contactAddress": { "type": "string" }
       }
+    },
+    "Customer": {
+      "title": "Customer",
+      "description": "Registered customer storefront credentials and profile parameters",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "password": { "type": "string" },
+        "phone": { "type": "string" },
+        "address": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "role": { "type": "string" }
+      },
+      "required": ["id", "name", "email"]
     }
   },
   "firestore": {
@@ -106,6 +122,10 @@
     "settings": {
       "schema": "Settings",
       "description": "Global storefront configurations"
+    },
+    "customers": {
+      "schema": "Customer",
+      "description": "Standard client consumer registry records"
     }
   }
 }

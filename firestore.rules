@@ -36,5 +36,11 @@ service cloud.firestore {
       allow read: if true;
       allow write: if true;
     }
+
+    // Customers collection: allow reads and writes for client-side syncing in sandbox
+    match /customers/{customerId} {
+      allow read: if true;
+      allow write: if true;
+    }
   }
 }
