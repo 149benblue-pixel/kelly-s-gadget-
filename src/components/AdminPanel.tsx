@@ -341,6 +341,46 @@ export default function AdminPanel() {
     reader.readAsDataURL(file);
   };
 
+  const handleEditFileChangeAndUploadProcess = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setIsUploading(true);
+    setUploadProgressCode("Compiling direct binary nodes for edits...");
+
+    const reader = new FileReader();
+    reader.onload = async () => {
+      const base64Content = reader.result as string;
+      try {
+        setUploadProgressCode("Decrypting pixel matrices for WebP compression...");
+        const res = await fetch('/api/admin/upload-optimize', {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': authToken!
+          },
+          body: JSON.stringify({
+            name: file.name,
+            base64Data: base64Content
+          })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          setEditImageUrl(data.imageUrl);
+          showNotification(`Automatic Optimization Complete: ${data.optimizationCode}! Image updated.`, 'success');
+        } else {
+          showNotification(data.error || "Upload process failed", 'error');
+        }
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setIsUploading(false);
+        setUploadProgressCode('');
+      }
+    };
+    reader.readAsDataURL(file);
+  };
+
   const handleProductPostSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!pName || !pPrice || !pImg) {
@@ -1057,12 +1097,68 @@ export default function AdminPanel() {
                         ))}
                       </select>
                     </div>
-                    <div>
-                      <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Product Image URL *</label>
-                      <input 
-                        type="text" required value={editImageUrl} onChange={(e) => setEditImageUrl(e.target.value)}
-                        className="w-full px-4 py-2 text-xs border border-gray-200 rounded-lg bg-white"
-                      />
+                    <div className="sm:col-span-3 bg-gray-50/50 p-4 border border-gray-200 rounded-xl space-y-3">
+                      <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
+                        {/* Image Preview Card */}
+                        <div className="flex items-center gap-3">
+                          <div className="w-16 h-16 shrink-0 rounded-lg border border-gray-200 bg-white p-1 flex items-center justify-center relative overflow-hidden shadow-sm">
+                            {editImageUrl ? (
+                              <img 
+                                src={editImageUrl} 
+                                alt="Gadget Preview" 
+                                className="w-full h-full object-contain"
+                                referrerPolicy="no-referrer"
+                              />
+                            ) : (
+                              <span className="text-[10px] text-gray-400">No Image</span>
+                            )}
+                          </div>
+                          <div>
+                            <h5 className="text-xs font-bold text-blue-955">Gadget Picture & Preview</h5>
+                            <p className="text-[10px] text-gray-500">Provide a remote URL below, or upload an optimized image directly.</p>
+                          </div>
+                        </div>
+
+                        {/* File Upload Selector */}
+                        <div className="flex items-center gap-2">
+                          <div className="relative shrink-0">
+                            <input 
+                              type="file" 
+                              accept="image/*"
+                              onChange={handleEditFileChangeAndUploadProcess}
+                              disabled={isUploading}
+                              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                              title="Upload gadget picture button"
+                            />
+                            <button 
+                              type="button" 
+                              disabled={isUploading}
+                              className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-3 py-2 rounded-lg cursor-pointer transition-all flex items-center justify-center min-w-[120px]"
+                            >
+                              {isUploading ? "Uploading..." : "Upload New Image"}
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Manual text URL Input */}
+                      <div>
+                        <label className="block text-[10px] font-extrabold text-gray-600 uppercase mb-1">Direct URL Link (Manual Overwrite)</label>
+                        <input 
+                          type="text" 
+                          required 
+                          value={editImageUrl} 
+                          onChange={(e) => setEditImageUrl(e.target.value)}
+                          className="w-full px-3 py-1.5 text-xs border border-gray-250 rounded-lg bg-white font-mono"
+                          placeholder="e.g. /api/assets/uploads/image.png or Unsplash URL"
+                        />
+                      </div>
+
+                      {isUploading && (
+                        <div className="text-center text-xs font-bold text-blue-700 bg-blue-50 border border-blue-100 rounded-lg py-1.5 animate-pulse">
+                          🌀 {uploadProgressCode}
+                        </div>
+                      )}
                     </div>
 
                     <div className="sm:col-span-3 bg-white p-3 border border-gray-200 rounded-xl flex flex-wrap gap-4 items-center">
@@ -1154,11 +1250,18 @@ export default function AdminPanel() {
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Main Image Relative URL *</label>
-                    <input 
-                      type="text" required value={pImg} onChange={(e) => setPImg(e.target.value)}
-                      className="w-full px-4 py-2 text-xs border border-gray-200 rounded-lg bg-white font-mono"
-                      placeholder="/api/assets/uploads/image.png or unsplash URL"
-                    />
+                    <div className="flex gap-2 items-center">
+                      {pImg && (
+                        <div className="w-9 h-9 border border-gray-250 rounded-lg p-0.5 bg-white flex items-center justify-center shrink-0 overflow-hidden shadow-sm">
+                          <img src={pImg} alt="Preview" referrerPolicy="no-referrer" className="w-full h-full object-contain" />
+                        </div>
+                      )}
+                      <input 
+                        type="text" required value={pImg} onChange={(e) => setPImg(e.target.value)}
+                        className="w-full px-4 py-2 text-xs border border-gray-200 rounded-lg bg-white font-mono"
+                        placeholder="/api/assets/uploads/image.png or unsplash URL"
+                      />
+                    </div>
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Standard Stock units *</label>
