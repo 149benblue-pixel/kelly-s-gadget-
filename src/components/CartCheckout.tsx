@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useStore } from './StoreContext';
 import { 
   ShoppingBag, 
@@ -20,7 +20,8 @@ import {
   Building,
   ArrowLeft,
   FileText,
-  Percent
+  Percent,
+  Lock
 } from 'lucide-react';
 import ProductCard from './ProductCard';
 
@@ -41,7 +42,9 @@ export default function CartCheckout() {
     verifyCoupon,
     checkout,
     websiteSettings,
-    user
+    user,
+    login,
+    registerCustomer
   } = useStore();
 
   // Selected payment channel inside checkout mode
@@ -60,6 +63,69 @@ export default function CartCheckout() {
   const [cardExpiry, setCardExpiry] = useState('');
   const [cardCvv, setCardCvv] = useState('');
   const [paypalEmail, setPaypalEmail] = useState(user?.email || '');
+
+  // Inline Auth states inside Checkout mode
+  const [checkoutAuthMode, setCheckoutAuthMode] = useState<'none' | 'login' | 'signup'>('none');
+  const [loginEmail, setLoginEmail] = useState('');
+  const [loginPass, setLoginPass] = useState('');
+  const [regName, setRegName] = useState('');
+  const [regEmail, setRegEmail] = useState('');
+  const [regPass, setRegPass] = useState('');
+  const [regPhone, setRegPhone] = useState('');
+  const [regAddress, setRegAddress] = useState('');
+  const [authSubmitting, setAuthSubmitting] = useState(false);
+
+  // Sync shipping info if user auth finishes
+  useEffect(() => {
+    if (user) {
+      if (!shippingName) setShippingName(user.name || '');
+      if (!shippingEmail) setShippingEmail(user.email || '');
+      if (!shippingPhone) {
+        setShippingPhone(user.phone || '');
+        setMpesaPhone(user.phone || '');
+      }
+      if (!shippingAddress) setShippingAddress(user.address || '');
+    }
+  }, [user]);
+
+  const handleInlineLogin = async () => {
+    if (!loginEmail || !loginPass) {
+      alert("Missing email or password");
+      return;
+    }
+    setAuthSubmitting(true);
+    const ok = await login(loginEmail, loginPass);
+    setAuthSubmitting(false);
+    if (ok) {
+      setCheckoutAuthMode('none');
+      setLoginEmail('');
+      setLoginPass('');
+    }
+  };
+
+  const handleInlineSignup = async () => {
+    if (!regName || !regEmail || !regPass) {
+      alert("Please fill in Name, Email and Password");
+      return;
+    }
+    setAuthSubmitting(true);
+    const ok = await registerCustomer({
+      name: regName,
+      email: regEmail,
+      password: regPass,
+      phone: regPhone,
+      address: regAddress
+    });
+    setAuthSubmitting(false);
+    if (ok) {
+      setCheckoutAuthMode('none');
+      setRegName('');
+      setRegEmail('');
+      setRegPass('');
+      setRegPhone('');
+      setRegAddress('');
+    }
+  };
 
   // Invoice view / checkout success modal
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -397,6 +463,171 @@ export default function CartCheckout() {
           
           {/* Left Form column: Shipping details */}
           <form onSubmit={handleProceedCheckout} className="lg:col-span-8 bg-white border border-gray-150 p-6 sm:p-8 rounded-2xl space-y-6" id="checkout-shipping-pay-form">
+            
+            {/* Customer Authentication Integration Section */}
+            <div className="bg-gray-50 border border-gray-150 rounded-2xl p-5" id="checkout-customer-auth-section">
+              {user ? (
+                <div className="flex items-center justify-between gap-3 bg-emerald-50/50 border border-emerald-100 p-3 sm:p-4 rounded-xl">
+                  <div>
+                    <h4 className="text-xs sm:text-sm font-extrabold text-blue-950 flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-ping"></span>
+                      <span>Customer Session Active • {user.name}</span>
+                    </h4>
+                    <p className="text-[11px] text-gray-500 mt-0.5">Your lifetime procurement coordinates and order receipts are securely synchronized with <strong>{user.email}</strong>.</p>
+                  </div>
+                  <span className="text-[10px] uppercase font-bold text-emerald-700 bg-emerald-100/60 px-2 py-0.5 rounded border border-emerald-200 font-mono">
+                    Logged In
+                  </span>
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                      <h4 className="text-xs sm:text-sm font-extrabold text-blue-950 flex items-center gap-1.5">
+                        <Lock className="w-4 h-4 text-blue-600" />
+                        <span>Order Shipment Account Integration</span>
+                      </h4>
+                      <p className="text-[11px] text-gray-500 mt-0.5">Log in to save checking out, track progress on map coordinates, or register an account.</p>
+                    </div>
+                    <div className="flex gap-2 shrink-0">
+                      <button
+                        type="button"
+                        onClick={() => setCheckoutAuthMode(checkoutAuthMode === 'login' ? 'none' : 'login')}
+                        className={`text-[11px] font-bold px-3 py-1.5 rounded-lg border transition-all cursor-pointer ${checkoutAuthMode === 'login' ? 'bg-blue-600 text-white border-blue-600' : 'bg-white hover:bg-gray-50 text-blue-600 border-gray-200'}`}
+                        id="checkout-trigger-login-btn"
+                      >
+                        Sign In Account
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setCheckoutAuthMode(checkoutAuthMode === 'signup' ? 'none' : 'signup')}
+                        className={`text-[11px] font-bold px-3 py-1.5 rounded-lg border transition-all cursor-pointer ${checkoutAuthMode === 'signup' ? 'bg-blue-600 text-white border-blue-600' : 'bg-white hover:bg-gray-50 text-blue-600 border-gray-200'}`}
+                        id="checkout-trigger-signup-btn"
+                      >
+                        Sign Up First
+                      </button>
+                    </div>
+                  </div>
+
+                  {checkoutAuthMode === 'login' && (
+                    <div className="bg-white p-4 border border-blue-100 rounded-xl space-y-4 shadow-xs" id="checkout-inline-login-box">
+                      <div className="flex items-center justify-between border-b border-gray-100 pb-2">
+                        <h5 className="text-xs font-bold text-blue-950 uppercase tracking-wide">Enter customer account keys</h5>
+                        <button type="button" onClick={() => setCheckoutAuthMode('none')} className="text-xs text-gray-400 hover:text-gray-600 cursor-pointer">Close</button>
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-[10px] font-extrabold text-gray-600 uppercase mb-1">Email Address *</label>
+                          <input
+                            type="email"
+                            value={loginEmail}
+                            onChange={(e) => setLoginEmail(e.target.value)}
+                            className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-gray-50 focus:bg-white"
+                            placeholder="mutua@domain.com"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[10px] font-extrabold text-gray-600 uppercase mb-1">Password *</label>
+                          <input
+                            type="password"
+                            value={loginPass}
+                            onChange={(e) => setLoginPass(e.target.value)}
+                            className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-gray-50 focus:bg-white"
+                            placeholder="••••••••"
+                          />
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between gap-4 pt-1 border-t border-gray-100 pt-3">
+                        <p className="text-[10px] text-gray-400 font-medium">Loads coordinates, past receipts, and VIP promotions instantly.</p>
+                        <button
+                          type="button"
+                          onClick={handleInlineLogin}
+                          disabled={authSubmitting}
+                          className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2 rounded-lg cursor-pointer transition-colors"
+                        >
+                          {authSubmitting ? "Authenticating..." : "Sync & Sign In"}
+                        </button>
+                      </div>
+                    </div>
+                  )}
+
+                  {checkoutAuthMode === 'signup' && (
+                    <div className="bg-white p-4 border border-blue-100 rounded-xl space-y-4 shadow-xs" id="checkout-inline-signup-box">
+                      <div className="flex items-center justify-between border-b border-gray-100 pb-2">
+                        <h5 className="text-xs font-bold text-blue-950 uppercase tracking-wide">Configure new client credentials</h5>
+                        <button type="button" onClick={() => setCheckoutAuthMode('none')} className="text-xs text-gray-400 hover:text-gray-600 cursor-pointer">Close</button>
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div>
+                          <label className="block text-[10px] font-extrabold text-gray-600 uppercase mb-1">Full Name *</label>
+                          <input
+                            type="text"
+                            value={regName}
+                            onChange={(e) => setRegName(e.target.value)}
+                            className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-gray-50 focus:bg-white"
+                            placeholder="Kelvin Mutua"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[10px] font-extrabold text-gray-600 uppercase mb-1">Email *</label>
+                          <input
+                            type="email"
+                            value={regEmail}
+                            onChange={(e) => setRegEmail(e.target.value)}
+                            className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-gray-50 focus:bg-white"
+                            placeholder="mutua@domain.com"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[10px] font-extrabold text-gray-600 uppercase mb-1">Password *</label>
+                          <input
+                            type="password"
+                            value={regPass}
+                            onChange={(e) => setRegPass(e.target.value)}
+                            className="w-full px-3 py-2 text-xs border border-gray-100 rounded-lg bg-gray-50 focus:bg-white"
+                            placeholder="••••••••"
+                          />
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-[10px] font-extrabold text-gray-600 uppercase mb-1">Telephone Line</label>
+                          <input
+                            type="tel"
+                            value={regPhone}
+                            onChange={(e) => setRegPhone(e.target.value)}
+                            className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-gray-50 focus:bg-white"
+                            placeholder="+254 700 XXX XXX"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[10px] font-extrabold text-gray-600 uppercase mb-1">Delivery Street Address</label>
+                          <input
+                            type="text"
+                            value={regAddress}
+                            onChange={(e) => setRegAddress(e.target.value)}
+                            className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-gray-50 focus:bg-white"
+                            placeholder="Homa Bay County, Sophia Block D"
+                          />
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between gap-4 pt-1 border-t border-gray-100 pt-3">
+                        <p className="text-[10px] text-gray-400 font-medium">This configures standard credentials on Kelly's Gadgets.</p>
+                        <button
+                          type="button"
+                          onClick={handleInlineSignup}
+                          disabled={authSubmitting}
+                          className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2 rounded-lg cursor-pointer transition-colors"
+                        >
+                          {authSubmitting ? "Creating..." : "Initialize Profile & Check Out"}
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+
             <div>
               <h3 className="text-base sm:text-lg font-bold text-blue-950 mb-4 pb-2 border-b border-gray-100 flex items-center gap-1.5">
                 <BadgeCheck className="w-5 h-5 text-blue-600" />
